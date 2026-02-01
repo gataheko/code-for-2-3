@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+/*
+ * TestScoreApp
+ * This program collects test scores,
+ * calculates the total, count, and average.
+ */
+public class TestScoreApp {
+
+    public static void main(String[] args) {
+
+        // Display instructions for the user
+        System.out.println("Enter test scores that range from 0 to 100.");
+        System.out.println("To exit, enter 999.\n");
+
+        // Variables used to track scores
+        int scoreTotal = 0;
+        int scoreCount = 0;
+        int testScore = 0;
+
+        // Scanner for user input
+        Scanner sc = new Scanner(System.in);
+
+        // Continue looping until sentinel value is entered
+        while (testScore <= 100) {
+
+            // Prompt user for a test score
+            System.out.print("Enter score: ");
+            String input = sc.nextLine();
+
+            // Convert input to integer
+            testScore = Integer.parseInt(input);
+
+            // Only add valid scores
+            if (testScore <= 100) {
+                scoreTotal += testScore;
+                scoreCount++;
+            }
+        }
+
+        // Calculate the average score
+        double averageScore = (double) scoreTotal / scoreCount;
+
+        // Display final results
+        System.out.println(
+            "\nScore count:   " + scoreCount +
+            "\nScore total:   " + scoreTotal +
+            "\nAverage score: " + averageScore
+        );
+    }
+}
